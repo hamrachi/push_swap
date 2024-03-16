@@ -6,7 +6,7 @@
 /*   By: hamrachi <hamrachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 00:11:32 by hamrachi          #+#    #+#             */
-/*   Updated: 2024/03/12 22:51:28 by hamrachi         ###   ########.fr       */
+/*   Updated: 2024/03/16 21:54:10 by hamrachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void	ft_free_stack(t_list *a)
 int main(int argc, char **argv)
 {
     int i;
+    //int j;
     char *str;
     t_list  *stacka;
     t_list  *stackb;
@@ -101,17 +102,30 @@ int main(int argc, char **argv)
     //ft_print_stack(stacka);
     //swap(&stacka);
     // stackb = ft_lstnew(0,0);
-    push(&stacka, &stackb);
-    rotate(&stacka);
-    revers_rotate(&stacka);
-    printf("staca after ------------\n");
-    pa(&stacka,&stackb);
-    //ft_sorting(&stacka, &stackb);
-    ft_print_stack(stacka);
-    printf("stackb ------------\n");
-    ft_print_stack(stackb);
+    //push(&stacka, &stackb);
+    // rotate(&stacka);
+    //revers_rotate(&stacka);
+    //printf("staca after ------------\n");
+    //push(&stacka,&stackb);
+    //j = ft_lstsize(stacka);
+    // i = 0;
+    //ft_print_stack(stacka);
+    //printf("staca after ------------\n");
+    //rb(&stacka);
+    // while(stacka && i < 5)
+    // {
+    //     ra(stacka);
+    //     i++;
+    // }
+    //ft_print_stack(stacka);
+    ft_sorting(NULL, );
     
+    //printf("stackb ------------\n");
+    //ft_print_stack(stackb);
+    //printf("stacka ------------\n");
+    //ft_print_stack(stacka);
     ft_free_stack(stacka);
+    ft_free_stack(stackb);
 	free(str);
-    atexit(leaks);
+    //atexit(leaks);
 }

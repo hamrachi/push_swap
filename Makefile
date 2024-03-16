@@ -19,7 +19,7 @@ OBJS = ${SRCS:%.c=%.o}
 all : ${NAME}
 	@cc $(FLAGS) main.c ${NAME} -o push_swap
 %.o : %.c libft.h push_swap.h
-	@${CC} ${FLAGS} -c $< -o $@
+	@${CC} ${FLAGS} -fsanitize=address -c $< -o $@
 
 ${NAME} : ${OBJS}
 	@ar rc ${NAME} ${OBJS}

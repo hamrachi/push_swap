@@ -6,7 +6,7 @@
 /*   By: hamrachi <hamrachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 01:37:37 by hamrachi          #+#    #+#             */
-/*   Updated: 2024/03/12 22:46:31 by hamrachi         ###   ########.fr       */
+/*   Updated: 2024/03/16 20:37:36 by hamrachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,54 +26,52 @@ void	swap(t_list **a)
 	ft_lstadd_front(a, tmp2);
 }
 
-void	sa(t_list *lsta)
+void	sa(t_list **lsta)
 {
-	if (ft_lstsize(lsta) < 2)
+	if (ft_lstsize(*lsta) < 2)
 		return;
-	swap(&lsta);
+	swap(lsta);
 	ft_putendl_fd("sa", 1);
-	return;
 }
 
-int sb(t_list *lstb)
+void sb(t_list **lstb)
 {
-	if (ft_lstsize(lstb) < 2)
-		return(1);
-	swap(&lstb);
+	if (ft_lstsize(*lstb) < 2)
+		return;
+	swap(lstb);
 	ft_putendl_fd("sb", 1);
-	return(0);
 }
 
-int ss(t_list *lsta, t_list *lstb)
+void	ss(t_list **lsta, t_list **lstb)
 {
-	if (ft_lstsize(lsta) < 2 || ft_lstsize(lstb) < 2)
-		return(1);
-	swap(&lsta);
-	swap(&lstb);
+	if (ft_lstsize(*lsta) < 2 || ft_lstsize(*lstb) < 2)
+		return;
+	swap(lsta);
+	swap(lstb);
 	ft_putendl_fd("ss", 1);
-	return(0);
 }
 
 void	push(t_list **lsta, t_list **lstb)
 {
 	t_list *heada;
 
+	if (!lsta || !(*lsta) || !lstb)
+		return ;
 	heada = *lsta;
 	*lsta = heada -> next;
 	heada -> next = NULL;
 	ft_lstadd_front(lstb, heada);
-	free(heada);
-}
-
-void	pa(t_list **a, t_list **b)
-{
-	write(1, "pa\n", 3);
-	push(a, b);
 }
 
 void	pb(t_list **a, t_list **b)
 {
 	write(1, "pb\n", 3);
+	push(a, b);
+}
+
+void	pa(t_list **a, t_list **b)
+{
+	write(1, "pa\n", 3);
 	push(b, a);
 }
 
@@ -81,22 +79,24 @@ void	rotate(t_list **a)
 {
 	t_list *tmp;
 
+	if (!(*a) || !(*a)->next)
+		return ;
 	tmp = *a;
-	*a = tmp -> next;
+	*a = (*a)->next;
 	tmp -> next = NULL;
 	ft_lstadd_back(a, tmp);
 }
 
-void	ra(t_list *a)
+void	ra(t_list **a)
 {
 	write(1 , "ra\n", 3);
-	rotate(&a);
+	rotate(a);
 }
 
-void	rb(t_list *b)
+void	rb(t_list **b)
 {
 	write(1 , "rb\n", 3);
-	rotate(&b);
+	rotate(b);
 }
 
 void	rr(t_list *a, t_list *b)
@@ -124,6 +124,8 @@ void	revers_rotate(t_list **a)
 	t_list *tmp;
 	t_list *tmp2;
 
+	if (!(*a) && !(*a)->next)
+		return ;
 	tmp = *a;
 	tmp2 = ft_lstlast(tmp);
 	tmp = ft_lstlat2(tmp);
