@@ -35,4 +35,3 @@
 //         tmp1 = tmp1 -> next;
 //     }
 // }
-int main ()

@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "random": "c",
+        "libft.h": "c",
+        "chrono": "c",
+        "algorithm": "c",
+        "limits": "c",
+        "ratio": "c"
+    }
+}

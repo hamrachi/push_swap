@@ -6,7 +6,7 @@
 /*   By: hamrachi <hamrachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 03:32:09 by hamrachi          #+#    #+#             */
-/*   Updated: 2024/03/07 22:09:59 by hamrachi         ###   ########.fr       */
+/*   Updated: 2024/03/23 22:42:22 by hamrachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int freememory(char **s,int c,int g)
 void    ft_check_error(char *s)
 {
 	if (ft_Firstchecker(s))
-        ft_show_error("Error1");
+        ft_show_error("Error");
     if (ft_Secondchecker(s))
-		ft_show_error("Error2");
+		ft_show_error("Error");
 }

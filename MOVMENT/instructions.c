@@ -6,7 +6,7 @@
 /*   By: hamrachi <hamrachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 01:37:37 by hamrachi          #+#    #+#             */
-/*   Updated: 2024/03/16 20:37:36 by hamrachi         ###   ########.fr       */
+/*   Updated: 2024/04/01 05:47:34 by hamrachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	rotate(t_list **a)
 	if (!(*a) || !(*a)->next)
 		return ;
 	tmp = *a;
-	*a = (*a)->next;
+	*a = tmp -> next;
 	tmp -> next = NULL;
 	ft_lstadd_back(a, tmp);
 }
@@ -99,11 +99,11 @@ void	rb(t_list **b)
 	rotate(b);
 }
 
-void	rr(t_list *a, t_list *b)
+void	rr(t_list **a, t_list **b)
 {
 	write(1, "rr\n", 3);
-	rotate(&a);
-	rotate(&b);
+	rotate(a);
+	rotate(b);
 }
 
 static t_list	*ft_lstlat2(t_list *lst)

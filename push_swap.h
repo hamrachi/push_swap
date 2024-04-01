@@ -6,7 +6,7 @@
 /*   By: hamrachi <hamrachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 01:27:32 by hamrachi          #+#    #+#             */
-/*   Updated: 2024/03/16 20:41:15 by hamrachi         ###   ########.fr       */
+/*   Updated: 2024/04/01 05:48:05 by hamrachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 # define PUSH_SWAP_H
 
 #include "LIBFT/libft.h"
-#include <stdio.h>
+#include <stdio.h>     
 
 void    ft_check_error(char *s);
 void    ft_indexing(t_list *a);
 void	ft_show_error(char *msg);
 int     freememory(char **s,int c,int g);
 void    ft_fullstack(t_list **a, char *s);
+void	ft_print_stack(t_list *a);
 void	swap(t_list **a);
 void	sa(t_list **lsta);
 void    sb(t_list **lstb);
@@ -31,7 +32,7 @@ void	pb(t_list **a, t_list **b);
 void    rotate(t_list **a);
 void	ra(t_list **a);
 void	rb(t_list **b);
-void	rr(t_list *a, t_list *b);
+void	rr(t_list **a, t_list **b);
 void	revers_rotate(t_list **a);
 void    rra(t_list **a);
 void	rrb(t_list **b);

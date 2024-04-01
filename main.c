@@ -6,7 +6,7 @@
 /*   By: hamrachi <hamrachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 00:11:32 by hamrachi          #+#    #+#             */
-/*   Updated: 2024/03/16 21:54:10 by hamrachi         ###   ########.fr       */
+/*   Updated: 2024/04/01 22:01:37 by hamrachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,6 @@ void	leaks()
 {
 	system("leaks push_swap");
 }
-// static char	*ft_args_join(int argc, char **argv)
-// {
-// 	int i;
-// 	char *str;
-
-// 	i = 1;
-//     while (i < argc)
-//     {
-//         if (argv[i][0] == 0 || ft_counter(argv[i], ' ') == 0 )
-//             ft_show_error("Error0");
-//         str = ft_strjoin(str, argv[i]);
-//         i++;
-//     }
-// 	return (str);
-// }
 void	ft_fullstack(t_list **a, char *s)
 {
     int		i;
@@ -55,7 +40,7 @@ void	ft_print_stack(t_list *a)
     tmp = a;
     while (tmp)
     {
-        printf("Index: %d ==> %d\n", tmp->index, tmp->content);
+       // printf("Index: %d ==> %d\n", tmp->index, tmp->content);
         tmp = tmp->next;
     }
 }
@@ -74,10 +59,24 @@ void	ft_free_stack(t_list *a)
     }
 	a = NULL;
 }
-
-int main(int argc, char **argv)
+char    *ft_join_args(int argc, char **argv)
 {
     int i;
+    char *str;
+
+    i = 1;
+    while (i < argc)
+    {
+        if (argv[i][0] == 0 || ft_counter(argv[i], ' ') == 0 )
+            ft_show_error("Error");
+        str = ft_strjoin(str, argv[i]);
+        i++;
+    }
+    return (str);
+}
+int main(int argc, char **argv)
+{
+    //int i;
     //int j;
     char *str;
     t_list  *stacka;
@@ -85,16 +84,7 @@ int main(int argc, char **argv)
     
     if (argc == 1)
         return (0);
-    i = 1;
-    while (i < argc)
-    {
-        if (argv[i][0] == 0 || ft_counter(argv[i], ' ') == 0 )
-            ft_show_error("Error0");
-        str = ft_strjoin(str, argv[i]);
-        i++;
-    }
-	//str = ft_args_join(argc, argv);
-	//printf ("%s", str);
+    str = ft_join_args(argc, argv);
     ft_check_error(str);
     ft_fullstack(&stacka, str);
     ft_indexing(stacka);
@@ -118,14 +108,14 @@ int main(int argc, char **argv)
     //     i++;
     // }
     //ft_print_stack(stacka);
-    ft_sorting(NULL, );
+    ft_sorting(&stacka, &stackb);
     
     //printf("stackb ------------\n");
     //ft_print_stack(stackb);
     //printf("stacka ------------\n");
-    //ft_print_stack(stacka);
+    ft_print_stack(stacka);
     ft_free_stack(stacka);
     ft_free_stack(stackb);
 	free(str);
-    //atexit(leaks);
+    // atexit(leaks);
 }
