@@ -6,7 +6,7 @@
 /*   By: hamrachi <hamrachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 00:55:18 by hamrachi          #+#    #+#             */
-/*   Updated: 2024/04/01 23:28:08 by hamrachi         ###   ########.fr       */
+/*   Updated: 2024/04/04 00:17:47 by hamrachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void    ft_sorting_push_b(t_list **a, t_list **b)
 			pb(a,b);
 			i++;
 		}
-		else if((*a)->index <= (i + c))
+		else if((*a)->index < (i + c))
 		{
 			pb(a,b);
 			rb(b); 
@@ -49,15 +49,15 @@ void    ft_sorting_push_b(t_list **a, t_list **b)
 	}
 }
 
-int	ft_check_max(t_list *b ,int max)
+int	ft_check_max(t_list **b ,int max)
 {
 	t_list *tmp;
 	size_t i;
 	size_t	j;
 
-	tmp = b;
+	tmp = *b;
 	i = 0;
-	j = ft_lstsize(b)/2;
+	j = ft_lstsize(*b)/2;
 	while(i < j)
 	{
 		if(tmp->index == max)
@@ -67,79 +67,22 @@ int	ft_check_max(t_list *b ,int max)
 	}
 	return(1);
 }
-void set_rank(t_list *list)
-{
-	int i = 0;
-	while(list)
-	{
-		list -> rank = i++;
-		list = list -> next;
-	}
-}
-
-int get_max(t_list *list)
-{
-	int max = INT_MIN;
-	int rank;
-	
-	rank = 0;
-	while(list)
-	{
-		if(list->index > max)
-		{
-			max = list->index;
-			rank = list -> rank;
-		}
-		list = list -> next;
-	}
-	return(rank);
-}
-int get_move(t_list *list,int *operation)
-{
-	int size = ft_lstsize(list);
-	int max = get_max(list);
-	*operation = 1;
-	if(max > size /2)
-	{
-		*operation = -1;
-		return(size - max);
-	}
-	return(max);
-}
 void	ft_sorting_push_a(t_list **a, t_list **b)
 {
 	int max;
-	t_list *tmp;
+	// t_list *tmp;
 
-	tmp = *b;
+	// tmp = *b;
 	max = ft_lstsize(*b);
 	
-	// int oper;
-	// int move = 0;
-	// while(ft_lstsize(*b)>1)
-	// {
-	// set_rank(*a);
-	//  move = get_move(*a, &oper);
-	// if(oper == -1)
-	// {
-	// 	while(move--)
-	// 		rrb(b);
-	// }
-	// else
-	// {
-	// 	while(move--)
-	// 		rb(b);
-	// }
-	// 	pa(a,b);
-	// }
-	while (max > 0)
+	while (ft_lstsize(*b) > 0)
 	{
 		if ((*b)->index == max)
 		{
 			pa(a,b);
 			max--;
 		}
-		else if (ft_check_max(*b, max))
+		else if (ft_check_max(b, max) == 0)
 			rb(b);
 		else
 			rrb(b);
