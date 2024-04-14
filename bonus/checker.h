@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions.c                                       :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hamrachi <hamrachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/10 01:37:37 by hamrachi          #+#    #+#             */
-/*   Updated: 2024/04/14 10:30:19 by hamrachi         ###   ########.fr       */
+/*   Created: 2024/04/04 02:15:39 by hamrachi          #+#    #+#             */
+/*   Updated: 2024/04/05 01:58:08 by hamrachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+# ifndef CHECKER_H
+#define CHECKER_H
+
+//#include "../LIBFT/libft.h"
 #include "../push_swap.h"
 
-t_list	*ft_lstlast2(t_list *lst)
-{
-	if (!lst)
-		return (NULL);
-	
-	while (lst -> next)
-	{
-		lst = lst -> next;
-	}
-	//printf("lst %d\n", lst -> content);
-	return (lst);
-}
+char    *ft_join_str(int argc, char **argv);
+# endif

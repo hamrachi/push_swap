@@ -6,7 +6,7 @@
 /*   By: hamrachi <hamrachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 01:27:32 by hamrachi          #+#    #+#             */
-/*   Updated: 2024/04/01 05:48:05 by hamrachi         ###   ########.fr       */
+/*   Updated: 2024/04/14 11:00:27 by hamrachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,15 @@ void	revers_rotate(t_list **a);
 void    rra(t_list **a);
 void	rrb(t_list **b);
 void	rrr(t_list **a, t_list **b);
+t_list  *ft_lstlast2(t_list *lst);
 void    ft_sorting_push_b(t_list **a, t_list **b);
 void	ft_sorting_push_a(t_list **a, t_list **b);
 void    ft_sorting(t_list **a, t_list **b);
+void	ft_sorting_three(t_list **a);
+void	ft_sorting_four(t_list **a, t_list **b);
+void    ft_sorting_five(t_list **a ,t_list **b);
+int     index_plus(t_list **a);
+int     ft_check_max(t_list **b ,int max);
+int     ft_check_sorted(t_list **a);
+int     ft_check_max_node(t_list **a);
 # endif

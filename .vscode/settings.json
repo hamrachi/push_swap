@@ -5,6 +5,8 @@
         "chrono": "c",
         "algorithm": "c",
         "limits": "c",
-        "ratio": "c"
-    }
+        "ratio": "c",
+        "push_swap.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }
